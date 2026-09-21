@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Tamil", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-brand-blue: #09448B;
+  --color-brand-blue-hover: #07356e;
+  --color-brand-blue-light: #e8f1fa;
+  --color-brand-emerald: #07C28D;
+  --color-brand-emerald-hover: #06a87a;
+  --color-brand-emerald-light: #e6f9f3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
