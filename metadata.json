@@ -2,5 +2,7 @@
   "name": "SimpleLife.lk - Insurance Made Simple",
   "description": "SimpleLife.lk என்பது இலங்கையில் காப்பீட்டை எளிமையாகவும் வெளிப்படையாகவும் புரிந்துகொள்ள உதவும் digital-first insurance platform.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
