@@ -64,6 +64,11 @@ export const Footer: React.FC<{ onOpenConsultation: () => void }> = ({ onOpenCon
                   வாடிக்கையாளர் பயணம் (Customer Journey)
                 </a>
               </li>
+              <li>
+                <a href="/simplelife.html" target="_blank" rel="noopener noreferrer" className="text-[#07C28D] font-semibold hover:underline">
+                  Standalone HTML/CSS/JS File ↗
+                </a>
+              </li>
             </ul>
           </div>
 

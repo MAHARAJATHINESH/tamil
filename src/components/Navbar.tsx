@@ -65,6 +65,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
           {/* Action CTA */}
           <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="/simplelife.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold text-[#09448B] bg-[#e8f1fa] hover:bg-[#d8e8f8] transition-colors"
+              title="Open pure HTML/CSS/JS version"
+            >
+              <span>Pure HTML Version</span>
+              <span className="text-[10px] bg-white px-1.5 py-0.5 rounded font-mono text-slate-600">.html</span>
+            </a>
             <button
               id="nav-clarity-call-btn"
               onClick={onOpenConsultation}
@@ -106,7 +116,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 {link.label}
               </a>
             ))}
-            <div className="pt-3 border-t border-slate-100">
+            <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+              <a
+                href="/simplelife.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-[#09448B] bg-[#e8f1fa]"
+              >
+                <span>Open Pure HTML/CSS/JS Page</span>
+              </a>
               <button
                 id="mobile-drawer-cta-btn"
                 onClick={() => {

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ta" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimpleLife.lk - Insurance Made Simple | இலங்கையின் முதல் Digital-First காப்பீட்டு தளம்</title>
+  <meta name="description" content="SimpleLife.lk என்பது இலங்கையில் காப்பீட்டை எளிமையாகவும் வெளிப்படையாகவும் புரிந்துகொள்ள உதவும் digital-first insurance platform. Insurance, made simple." />
+  <meta property="og:title" content="SimpleLife.lk - Insurance Made Simple" />
+  <meta property="og:description" content="காப்பீட்டை எளிமையாகப் புரிந்துகொள்ளவும், தேவையை மதிப்பிடவும், பொருத்தமான விருப்பங்களை ஒப்பிடவும் உதவும் Consultative Advisory தளம்." />
+  <meta property="og:image" content="https://6aae6613380f009d8901a4e1.imgix.net/sandbox/Simple%20life%20Logo.png" />
+  
+  <!-- Fonts: Google Fonts Noto Sans Tamil & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN for instant styling without build tools -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#09448B',
+              'blue-hover': '#07356e',
+              'blue-light': '#e8f1fa',
+              emerald: '#07C28D',
+              'emerald-hover': '#06a87a',
+              'emerald-light': '#e6f9f3',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Tamil"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Tamil', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-[#07C28D]/20 selection:text-[#09448B]">
+
+  <!-- HEADER / NAVIGATION -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <img src="https://6aae6613380f009d8901a4e1.imgix.net/sandbox/Simple%20life%20Logo.png" alt="SimpleLife.lk Logo" class="h-10 sm:h-11 w-auto object-contain" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700">
+          <a href="#about" class="hover:text-brand-blue transition-colors">எங்கள் நோக்கம்</a>
+          <a href="#advisory" class="hover:text-brand-blue transition-colors">அணுகுமுறை</a>
+          <a href="#calculator" class="hover:text-brand-blue transition-colors">தேவை மதிப்பீடு</a>
+          <a href="#why-us" class="hover:text-brand-blue transition-colors">ஏன் SimpleLife?</a>
+          <a href="#principles" class="hover:text-brand-blue transition-colors">6 கோட்பாடுகள்</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button onclick="openModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-blue hover:bg-brand-blue-hover active:scale-95 transition-all shadow-sm cursor-pointer">
+            <span>ஆலோசனை பெற</span>
+            <span class="text-brand-emerald">→</span>
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-700 md:hidden hover:bg-slate-100" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-3">
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">எங்கள் நோக்கம்</a>
+      <a href="#advisory" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">அணுகுமுறை</a>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">தேவை மதிப்பீடு</a>
+      <a href="#why-us" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">ஏன் SimpleLife?</a>
+      <a href="#principles" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">6 கோட்பாடுகள்</a>
+      <button onclick="toggleMobileMenu(); openModal();" class="w-full py-3 rounded-xl text-center font-bold text-white bg-brand-blue">
+        இலவச தெளிவு ஆலோசனை
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="pt-32 pb-16 sm:pt-40 sm:pb-24 bg-gradient-to-b from-white via-slate-50 to-slate-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs sm:text-sm font-semibold text-brand-blue shadow-xs mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
+        <span>Digital-First Insurance Platform for Sri Lanka</span>
+      </div>
+
+      <!-- Main Headline Question -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
+        காப்பீடு என்றால் உங்களுக்கு முதலில் <br class="hidden sm:inline" />
+        <span class="text-brand-blue relative inline-block">
+          என்ன தோன்றுகிறது?
+          <span class="absolute bottom-1 left-0 w-full h-2.5 bg-brand-emerald/20 -z-1 rounded-sm"></span>
+        </span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+        What is the first thing that comes to your mind when you think of insurance?
+      </p>
+
+      <!-- 4 Friction Cards -->
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div class="p-5 rounded-2xl bg-white border border-amber-200/80 shadow-xs hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-3">?</div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900">குழப்பமா?</h2>
+          <p class="text-xs text-slate-500 mt-1">Confusion?</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-rose-200/80 shadow-xs hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold mb-3">§</div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900">அதிகமான விதிமுறைகளா?</h2>
+          <p class="text-xs text-slate-500 mt-1">Too many terms?</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-indigo-200/80 shadow-xs hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold mb-3">Aa</div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900">புரியாத வார்த்தைகளா?</h2>
+          <p class="text-xs text-slate-500 mt-1">Unclear jargon?</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-orange-200/80 shadow-xs hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold mb-3">☎</div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900">தொடர்ந்து வரும் Sales Calls-ஆ?</h2>
+          <p class="text-xs text-slate-500 mt-1">Pressure calls?</p>
+        </div>
+      </div>
+
+      <!-- Core Transformation Callout -->
+      <div class="mt-12 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm text-left max-w-4xl mx-auto relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-emerald to-brand-blue"></div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-3">
+            <div class="text-xs font-bold uppercase tracking-wider text-brand-emerald">The SimpleLife.lk Difference</div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-blue">
+              SimpleLife.lk உருவானதே இதை மாற்றுவதற்காக.
+            </h3>
+            <p class="text-base sm:text-lg text-slate-700 font-medium">
+              மக்கள் காப்பீட்டை விரும்பாதவர்கள் அல்ல. <br />
+              <span class="text-slate-900 font-bold">அதைப் புரிந்துகொள்வது கடினமாக இருப்பதுதான் பிரச்சினை.</span>
+            </p>
+          </div>
+          <div class="shrink-0">
+            <div class="p-4 rounded-2xl bg-brand-emerald-light border border-brand-emerald/30 text-center">
+              <div class="text-xs font-semibold text-brand-blue uppercase">Our Philosophy</div>
+              <div class="text-xl font-extrabold text-brand-blue mt-1">
+                Insurance, <span class="text-brand-emerald">made simple.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-6 border-slate-100" />
+
+        <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+          <strong class="text-brand-blue">SimpleLife.lk-ல்</strong>, காப்பீட்டை எளிமையாகப் புரிந்துகொள்ளவும், தேவையை மதிப்பிடவும், பொருத்தமான விருப்பங்களை ஒப்பிடவும், நம்பிக்கையுடன் முடிவு எடுக்கவும் மக்களுக்கு உதவுகிறோம்.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center gap-3">
+          <button onclick="openModal()" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-white bg-brand-blue hover:bg-brand-blue-hover transition shadow cursor-pointer">
+            இலவச தெளிவு ஆலோசனை (Clarity Call)
+          </button>
+          <a href="#advisory" class="w-full sm:w-auto px-6 py-3.5 rounded-full text-center text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition">
+            எங்கள் அணுகுமுறையை அறிக
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTATIVE ADVISORY APPROACH -->
+  <section id="advisory" class="py-20 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand-blue-light text-brand-blue text-xs font-bold uppercase tracking-wider mb-3">
+          Consultative Insurance Advisory
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          எங்கள் நோக்கம் ஒரு policy-யை <br />
+          <span class="text-brand-blue">எப்படியாவது விற்பது அல்ல.</span>
+        </h2>
+        <p class="mt-3 text-slate-600">
+          முதலில் புரிந்துகொள்வது. பிறகு ஆலோசனை வழங்குவது. தேவைக்கு ஏற்ற தீர்வை கண்டுபிடிப்பது.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-7 rounded-2xl bg-white border border-slate-200 hover:border-brand-blue transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-black tracking-widest text-slate-400">STEP 01</span>
+              <span class="w-10 h-10 rounded-xl bg-brand-blue-light text-brand-blue flex items-center justify-center font-bold">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">முதலில் புரிந்துகொள்வது</h3>
+            <p class="text-xs text-brand-emerald font-semibold uppercase mt-1">First Understand</p>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+              உங்கள் குடும்ப நிலை, வருமானம், நிதிப் பொறுப்புகள் மற்றும் பாதுகாப்புத் தேவைகளை முழுமையாகக் கேட்டறிதல்.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-7 rounded-2xl bg-white border border-slate-200 hover:border-brand-emerald transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-black tracking-widest text-slate-400">STEP 02</span>
+              <span class="w-10 h-10 rounded-xl bg-brand-emerald-light text-brand-emerald flex items-center justify-center font-bold">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">பிறகு ஆலோசனை வழங்குவது</h3>
+            <p class="text-xs text-brand-emerald font-semibold uppercase mt-1">Then Advise</p>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+              விற்பனை அழுத்தம் இன்றி, தேவைகளை மட்டும் மையமாகக் கொண்டு பக்கச்சார்பற்ற தெளிவான வழிகாட்டல்.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-7 rounded-2xl bg-white border border-slate-200 hover:border-brand-blue transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-black tracking-widest text-slate-400">STEP 03</span>
+              <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center font-bold">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">தேவைக்கு ஏற்ற தீர்வை கண்டுபிடிப்பது</h3>
+            <p class="text-xs text-brand-emerald font-semibold uppercase mt-1">Find the Solution</p>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+              உங்கள் பட்ஜெட் மற்றும் நீண்டகால இலக்குகளுக்குப் பொருந்தக்கூடிய துல்லியமான பாலிசியைத் தேர்ந்தெடுத்தல்.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 p-4 rounded-2xl bg-brand-emerald-light/60 border border-brand-emerald/30 text-center max-w-2xl mx-auto text-brand-blue font-bold text-sm sm:text-base">
+        ✓ இதுதான் எங்கள் Consultative Insurance Advisory அணுகுமுறை.
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & JOURNEY -->
+  <section id="about" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-brand-blue mb-3">
+          SimpleLife.lk பற்றி
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Insurance, <span class="text-brand-emerald">made simple.</span>
+        </h2>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+          SimpleLife.lk என்பது இலங்கையில் காப்பீட்டை எளிமையாகவும் வெளிப்படையாகவும் புரிந்துகொள்ள உதவும் <strong>digital-first insurance platform</strong>. முக்கியமாக Life Insurance மற்றும் Term Insurance போன்ற தீர்வுகளை எளிய மொழியில் புரிந்துகொள்ள உதவுவதிலிருந்து தொடங்கி, எதிர்காலத்தில் ஒரு விரிவான digital insurance ecosystem-ஐ உருவாக்குவதே எங்கள் நோக்கம்.
+        </p>
+      </div>
+
+      <!-- 5 Steps Journey -->
+      <div class="mt-14">
+        <h3 class="text-xl font-bold text-center text-slate-900 mb-8">
+          எங்கள் எளிய வாடிக்கையாளர் பயணம்
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+            <span class="text-xs font-bold text-brand-emerald">01. Understand</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">புரிந்துகொள்ளுதல்</h4>
+            <p class="text-xs text-slate-500 mt-2">காப்பீடு எதற்கு தேவை என்பதை எளிய மொழியில் அறிதல்.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+            <span class="text-xs font-bold text-brand-emerald">02. Calculate</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">மதிப்பிடுதல்</h4>
+            <p class="text-xs text-slate-500 mt-2">குடும்பத்திற்கான சரியான கவரேஜ் தொகையை கணக்கிடுதல்.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+            <span class="text-xs font-bold text-brand-emerald">03. Compare</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">ஒப்பிடுதல்</h4>
+            <p class="text-xs text-slate-500 mt-2">பொருத்தமான பாலிசிகளை வெளிப்படையாக ஒப்பிடுதல்.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+            <span class="text-xs font-bold text-brand-emerald">04. Choose</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">தேர்வு செய்தல்</h4>
+            <p class="text-xs text-slate-500 mt-2">அழுத்தமின்றி திருப்தியுடன் முடிவெடுத்தல்.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-brand-emerald ring-2 ring-brand-emerald/20 shadow-2xs">
+            <span class="text-xs font-bold text-brand-emerald">05. Protect</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">பாதுகாத்தல்</h4>
+            <p class="text-xs text-slate-500 mt-2">பாலிசி காலம் முழுவதும் க்ளைம் மற்றும் தொடர் உதவி.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE NEED CALCULATOR -->
+  <section id="calculator" class="py-16 bg-white border-y border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200">
+        <div class="text-center mb-8">
+          <span class="inline-block px-3 py-1 rounded-full bg-brand-blue-light text-brand-blue text-xs font-bold uppercase mb-2">
+            Calculate Need
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            உங்கள் குடும்பத்திற்கான கவரேஜ் எவ்வளவு?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            தோராயமான மனித வாழ்க்கை மதிப்பு (Human Life Value) கணக்கீடு
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                <span>மாதாந்த குடும்பச் செலவு:</span>
+                <span id="expense-label" class="text-brand-blue font-extrabold text-sm">LKR 100,000</span>
+              </div>
+              <input id="expense-input" type="range" min="30000" max="500000" step="10000" value="100000" oninput="calculateCoverage()" class="w-full h-2 bg-slate-200 rounded appearance-none cursor-pointer accent-[#09448B]" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                <span>பாதுகாக்க வேண்டிய வருடங்கள்:</span>
+                <span id="years-label" class="text-brand-emerald font-extrabold text-sm">15 வருடங்கள்</span>
+              </div>
+              <input id="years-input" type="range" min="5" max="30" step="1" value="15" oninput="calculateCoverage()" class="w-full h-2 bg-slate-200 rounded appearance-none cursor-pointer accent-[#07C28D]" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                <span>கடன்கள் / பொறுப்புகள்:</span>
+                <span id="debt-label" class="text-brand-blue font-extrabold text-sm">LKR 2,000,000</span>
+              </div>
+              <input id="debt-input" type="range" min="0" max="20000000" step="500000" value="2000000" oninput="calculateCoverage()" class="w-full h-2 bg-slate-200 rounded appearance-none cursor-pointer accent-[#09448B]" />
+            </div>
+          </div>
+
+          <div class="md:col-span-5 bg-gradient-to-br from-brand-blue to-[#07356e] text-white p-6 rounded-2xl text-center shadow-md">
+            <div class="text-xs font-bold uppercase tracking-wider text-brand-emerald">பரிந்துரைக்கப்படும் கவரேஜ்</div>
+            <div id="result-coverage" class="text-2xl sm:text-3xl font-black text-white my-3 py-2 border-y border-white/15">
+              LKR 2.0 கோடி
+            </div>
+            <p class="text-xs text-slate-200 mb-4">Term Insurance மூலம் இந்த பாதுகாப்பை மிகக் குறைந்த பிரீமியத்தில் பெற முடியும்.</p>
+            <button onclick="openModal()" class="w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold text-brand-blue bg-white hover:bg-slate-100 transition">
+              இதற்கான ஆலோசனை பெற →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SIMPLELIFE.LK -->
+  <section id="why-us" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-2">
+          Why SimpleLife.lk?
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          இலங்கையில் நிலவும் சவால்களை <br />
+          <span class="text-brand-blue">SimpleLife.lk எவ்வாறு மாற்றுகிறது?</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Problems -->
+        <div class="lg:col-span-5 bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200">
+          <h3 class="font-bold text-rose-600 text-base mb-4">
+            இலங்கையில் காப்பீடு தொடர்பான அனுபவம் பலருக்கு:
+          </h3>
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="p-3 bg-white rounded-xl border border-rose-100">✕ அதிகமாக Sales-focused</li>
+            <li class="p-3 bg-white rounded-xl border border-rose-100">✕ அதிகமாக Complex</li>
+            <li class="p-3 bg-white rounded-xl border border-rose-100">✕ தேவையான நேரத்தில் சரியான Guidance இல்லாதது</li>
+            <li class="p-3 bg-white rounded-xl border border-rose-100">✕ Policy terms புரிந்துகொள்ள கடினமானது</li>
+            <li class="p-3 bg-white rounded-xl border border-rose-100">✕ பல options இருப்பதால் Decision confusion</li>
+          </ul>
+        </div>
+
+        <!-- The Bridge Solution -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border-2 border-brand-emerald/40 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-brand-emerald-light text-brand-emerald text-xs font-bold uppercase mb-3">The Bridge</span>
+            <h3 class="text-2xl font-extrabold text-brand-blue">SimpleLife.lk இந்த இடைவெளியை நிரப்ப முயற்சிக்கிறது:</h3>
+
+            <div class="my-6 p-4 rounded-2xl bg-brand-blue text-white font-bold text-center text-base sm:text-lg">
+              Clear Advice <span class="text-brand-emerald">+</span> Simple Explanation <span class="text-brand-emerald">+</span> Customer Support
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-brand-blue-light border border-brand-blue/20">
+                <h4 class="font-bold text-brand-blue text-sm">Clear Advice</h4>
+                <p class="text-xs text-slate-600 mt-1">தெளிவான பக்கச்சார்பற்ற வழிகாட்டல்</p>
+              </div>
+              <div class="p-4 rounded-xl bg-brand-emerald-light border border-brand-emerald/30">
+                <h4 class="font-bold text-brand-emerald text-sm">Simple Explanation</h4>
+                <p class="text-xs text-slate-600 mt-1">எளிய தமிழில் தெளிவான விளக்கம்</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-100 border border-slate-200">
+                <h4 class="font-bold text-slate-800 text-sm">Customer Support</h4>
+                <p class="text-xs text-slate-600 mt-1">எப்போதும் துணைநிற்கும் வாடிக்கையாளர் ஆதரவு</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex justify-end">
+            <button onclick="openModal()" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-blue hover:bg-brand-blue-hover transition text-sm">
+              எங்களுடன் பேச →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 PRACTICAL PRINCIPLES -->
+  <section id="principles" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-brand-blue mb-2">
+          What This Means in Practice
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          செயல்முறையில் எங்கள் <span class="text-brand-blue">6 முக்கிய கோட்பாடுகள்</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 01 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-2xs">
+          <span class="text-sm font-black text-brand-blue">01</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Customer First</h3>
+          <p class="text-xs text-brand-emerald font-semibold">வாடிக்கையாளரின் தேவைக்கு முதல் இடம்</p>
+          <p class="text-sm text-slate-600 mt-3">
+            வாடிக்கையாளரின் தேவையை முதலில் புரிந்துகொள்வோம். அவர்களின் வயது, குடும்ப நிலை, வருமானம், எதிர்கால இலக்குகள், நிதி பொறுப்புகள், மற்றும் Protection needs ஆகியவற்றை புரிந்துகொண்ட பிறகே ஆலோசனை வழங்கப்படும்.
+          </p>
+        </div>
+
+        <!-- 02 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-2xs">
+          <span class="text-sm font-black text-brand-emerald">02</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Advice Before Selling</h3>
+          <p class="text-xs text-brand-blue font-semibold">விற்பனைக்கு முன் சரியான ஆலோசனை</p>
+          <p class="text-sm text-slate-600 mt-3">
+            எங்கள் முதல் நோக்கம் ஒரு policy விற்பது அல்ல. சரியான கேள்விகளை கேட்டு, சரியான புரிதலை உருவாக்குவதே முதல் படி.
+          </p>
+        </div>
+
+        <!-- 03 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-2xs">
+          <span class="text-sm font-black text-brand-blue">03</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Simple Explanation</h3>
+          <p class="text-xs text-brand-emerald font-semibold">எளிய விளக்கம்</p>
+          <p class="text-sm text-slate-600 mt-3">
+            Insurance terminology-ஐ எளிய மொழியில் விளக்க வேண்டும். வாடிக்கையாளர் புரிந்துகொள்ளாத ஒரு விஷயத்தை, அவரிடம் வாங்கச் சொல்லக்கூடாது.
+          </p>
+        </div>
+
+        <!-- 04 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-2xs">
+          <span class="text-sm font-black text-brand-emerald">04</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Right Fit</h3>
+          <p class="text-xs text-brand-blue font-semibold">பொருத்தமான தீர்வு</p>
+          <p class="text-sm text-slate-600 mt-3">
+            ஒவ்வொரு customer-க்கும் ஒரே insurance solution பொருந்தாது. தேவை, budget மற்றும் long-term goals-க்கு பொருந்தக்கூடிய options-ஐ விளக்குவது எங்கள் பணி.
+          </p>
+        </div>
+
+        <!-- 05 -->
+        <div class="bg-white p-7 rounded-3xl border-2 border-brand-emerald/40 shadow-xs relative">
+          <span class="text-sm font-black text-brand-blue">05</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">No Pressure</h3>
+          <p class="text-xs text-brand-emerald font-semibold">அழுத்தங்கள் இல்லை</p>
+          <p class="text-sm text-slate-600 mt-3">
+            தொடர்ந்து calls செய்து customer-ஐ pressure செய்வது எங்கள் approach அல்ல. 
+          </p>
+          <div class="mt-4 p-3 bg-brand-emerald-light rounded-xl font-bold text-brand-blue text-sm text-center">
+            Clarity first. Decision next.
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-2xs">
+          <span class="text-sm font-black text-brand-blue">06</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">Long-Term Support</h3>
+          <p class="text-xs text-brand-emerald font-semibold">நீண்டகால ஆதரவு</p>
+          <p class="text-sm text-slate-600 mt-3">
+            Policy வாங்கிய பிறகும் customer journey முடிவதில்லை. தேவையான support மற்றும் guidance-ஐ தொடர்ந்து வழங்குவதே SimpleLife.lk அனுபவத்தின் ஒரு பகுதியாக இருக்கும்.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-10 border-b border-slate-800">
+        <div>
+          <img src="https://6aae6613380f009d8901a4e1.imgix.net/sandbox/Simple%20life%20Logo.png" alt="SimpleLife.lk" class="h-9 bg-white p-1.5 rounded-lg" />
+          <p class="text-sm text-slate-400 mt-2">Insurance, made simple. Sri Lanka.</p>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-slate-400">
+          <a href="#about" class="hover:text-white">நோக்கம்</a>
+          <a href="#advisory" class="hover:text-white">அணுகுமுறை</a>
+          <a href="#calculator" class="hover:text-white">மதிப்பீடு</a>
+          <a href="#why-us" class="hover:text-white">ஏன் நாங்கள்?</a>
+          <a href="#principles" class="hover:text-white">கோட்பாடுகள்</a>
+        </div>
+      </div>
+      <div class="pt-6 text-center text-xs text-slate-500">
+        © <span id="year"></span> SimpleLife.lk. All rights reserved. Clarity first. Decision next.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONSULTATION MODAL (POPUP) -->
+  <div id="clarity-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
+      <!-- Top header -->
+      <div class="bg-brand-blue text-white p-6 relative">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white/80 hover:text-white text-xl font-bold cursor-pointer">✕</button>
+        <span class="text-xs font-bold text-brand-emerald uppercase">No Pressure Consultation</span>
+        <h3 class="text-xl font-bold mt-1">இலவச தெளிவு ஆலோசனை (Clarity Call)</h3>
+        <p class="text-xs text-slate-200 mt-0.5">Clarity first. Decision next.</p>
+      </div>
+
+      <!-- Form -->
+      <div id="modal-content" class="p-6">
+        <form id="consult-form" onsubmit="submitForm(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">உங்கள் பெயர் *</label>
+            <input type="text" required placeholder="எ.கா: சுரேஷ் குமார்" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-blue" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">தொலைபேசி / WhatsApp எண் *</label>
+            <input type="tel" required placeholder="077 123 4567" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-blue" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1">விருப்பமான காப்பீடு</label>
+              <select class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm bg-white">
+                <option>Term Insurance</option>
+                <option>Life Insurance</option>
+                <option>இன்னும் முடிவு செய்யவில்லை</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1">வயது</label>
+              <select class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm bg-white">
+                <option>18-25</option>
+                <option selected>26-35</option>
+                <option>36-45</option>
+                <option>46-60</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="p-3 bg-brand-emerald-light text-brand-blue text-xs rounded-xl">
+            ✓ <strong>உறுதிமொழி:</strong> உங்கள் விவரங்கள் இரகசியமாக வைக்கப்படும். தொடர்ந்து sales calls செய்யப்படாது.
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl font-bold text-white bg-brand-blue hover:bg-brand-blue-hover transition cursor-pointer">
+            ஆலோசனைக்கான கோரிக்கையை சமர்ப்பிக்கவும்
+          </button>
+        </form>
+
+        <div id="success-msg" class="hidden text-center py-6">
+          <div class="w-14 h-14 bg-brand-emerald-light text-brand-emerald text-2xl font-bold rounded-full flex items-center justify-center mx-auto mb-3">✓</div>
+          <h4 class="text-xl font-bold text-slate-900">நன்றி! உங்கள் கோரிக்கை பெறப்பட்டது.</h4>
+          <p class="text-xs text-slate-600 mt-2">எங்கள் ஆலோசகர் உங்களை விரைவில் தொடர்புகொண்டு பக்கச்சார்பற்ற தெளிவு வழங்குவார்.</p>
+          <button onclick="closeModal()" class="mt-5 px-6 py-2 rounded-full text-xs font-bold text-white bg-brand-blue">மூடுக</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CTA BUTTON -->
+  <div class="fixed bottom-6 right-6 z-30">
+    <button onclick="openModal()" class="flex items-center gap-2 px-5 py-3 rounded-full bg-brand-blue text-white font-bold text-sm shadow-xl hover:bg-brand-blue-hover transition cursor-pointer">
+      <span class="w-2.5 h-2.5 rounded-full bg-brand-emerald animate-ping"></span>
+      <span>தெளிவு ஆலோசனை</span>
+    </button>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Copyright Year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Modal Handlers
+    function openModal() {
+      const modal = document.getElementById('clarity-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('clarity-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.getElementById('consult-form').reset();
+      document.getElementById('consult-form').classList.remove('hidden');
+      document.getElementById('success-msg').classList.add('hidden');
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('consult-form').classList.add('hidden');
+      document.getElementById('success-msg').classList.remove('hidden');
+    }
+
+    // Need Assessment Calculator logic
+    function calculateCoverage() {
+      const expense = Number(document.getElementById('expense-input').value);
+      const years = Number(document.getElementById('years-input').value);
+      const debt = Number(document.getElementById('debt-input').value);
+
+      document.getElementById('expense-label').innerText = 'LKR ' + expense.toLocaleString();
+      document.getElementById('years-label').innerText = years + ' வருடங்கள்';
+      document.getElementById('debt-label').innerText = 'LKR ' + debt.toLocaleString();
+
+      const total = (expense * 12 * years) + debt;
+      let display = '';
+      if (total >= 10000000) {
+        display = 'LKR ' + (total / 10000000).toFixed(1) + ' கோடி';
+      } else if (total >= 100000) {
+        display = 'LKR ' + (total / 100000).toFixed(1) + ' இலட்சம்';
+      } else {
+        display = 'LKR ' + total.toLocaleString();
+      }
+
+      document.getElementById('result-coverage').innerText = display;
+    }
+  </script>
+</body>
+</html>
